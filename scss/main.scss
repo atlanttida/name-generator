@@ -16,6 +16,21 @@ a.logo{
   // border-radius: 2em;
 }
 
+.output button{
+  &:after {
+      content: "Copied!";
+      position: absolute;
+      transition: all 0.2s;
+      color: white;
+      opacity: 0;
+      margin-left: 2em;
+  }
+  &:active:after {
+      margin-left: 3em;
+      opacity: 1;
+  }
+}
+
 body.bg-image {
   background: none no-repeat center center fixed;
   -webkit-background-size: cover;

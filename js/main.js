@@ -13,21 +13,23 @@ var output = document.querySelector(".output");
 // document.querySelector("input[name=pattern]").oninput=document.querySelector("input[name=pattern]").onchange = (e) => {
 //     generator = NameGen.compile(e.target.value);
 // }
-document.querySelector("button[name=go]").onclick = () =>{
+if (document.querySelector("button[name=go]")){
+    document.querySelector("button[name=go]").onclick = () =>{
 
-    document.querySelector(".usr").style.display="none";
+        document.querySelector(".usr").style.display="none";
 
-    //show ads
-    document.querySelectorAll(".google-ad").forEach(el =>el.classList.remove("d-none"));
-    output.innerHTML = "";
-    BgSwitcher.changeBg();
-    for (var i=0;i<maxNames;i++){
-        var p = document.createElement("p");
-        var generatedName = generator.toString().capitalize();
-        p.innerHTML = '<button class="btn btn-outline-light btn-lg"> '+generatedName + ' | <i class="bi bi-clipboard-check"></i> Copy</button>';
-        var btn = output.appendChild(p).firstChild;
-        btn["data-txt"] = generatedName;
-        btn.onclick = copyToClipboard;
+        //show ads
+        document.querySelectorAll(".google-ad").forEach(el =>el.classList.remove("d-none"));
+        output.innerHTML = "";
+        BgSwitcher.changeBg();
+        for (var i=0;i<maxNames;i++){
+            var p = document.createElement("p");
+            var generatedName = generator.toString().capitalize();
+            p.innerHTML = '<button class="btn btn-outline-light btn-lg"> '+generatedName + ' | <i class="bi bi-clipboard-check"></i> Copy</button>';
+            var btn = output.appendChild(p).firstChild;
+            btn["data-txt"] = generatedName;
+            btn.onclick = copyToClipboard;
+        }
     }
 }
 
