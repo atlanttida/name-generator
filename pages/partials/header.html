@@ -3,15 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gamer Name Generator</title>
+    <title>{{title}}</title>
+    <meta name="robots" content="index,follow" />
+    {{#if canonical}}<link rel="canonical" href="{{canonical}}" />{{/if}}
 
-    <link rel="stylesheet" href="./css/style.min.css">    
+    <meta name="description" content="{{description}}">
+    <link rel="stylesheet" href="../css/style.min.css">
+
+    <meta property="og:title" content="{{title}}" />
+    {{#if canonical}}<meta property="og:url" href="{{canonical}}" />{{/if}}
+    <meta property="og:description" content="{{description}}" />
+    {{#if featured_image}}<meta property="og:image" content="{{featured_image}}" />{{/if}}
 </head>
 <body class="d-flex h-100 text-center text-white bg-dark bg-image">
         <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
           <header class="mb-auto">
             <div>
-              <h3 class="float-md-start mb-0">GNG</h3>
+              <h3 class="float-md-start mb-0"><a class="logo" href="/">NIK-G</a></h3>
               <nav class="nav nav-masthead justify-content-center float-md-end">
                 <a class="nav-link active" aria-current="page" href="/">Home</a>
                 <a class="nav-link" href="#">Blog</a>

@@ -6,9 +6,10 @@
   "scripts": {
     "build-css": "node-sass --include-path scss scss/main.scss docs/css/style.min.css --output-style compressed",
     "build-js": "browserify js/main.js>docs/js/main.min.js",
-    "build": "npm run build-css && npm run build-js",
+    "generate-html": "node ./build-pages.js",
+    "build": "npm run build-css && npm run build-js && npm run generate-html",
     "server": "http-server docs",
-    "start": "nodemon -e js,scss -x \"npm run build && npm run server\" --ignore docs/"
+    "start": "nodemon -e js,scss,html -x \"npm run build && npm run server\" --ignore docs/"
   },
   "author": "",
   "license": "ISC",

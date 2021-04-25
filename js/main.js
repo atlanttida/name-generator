@@ -5,7 +5,7 @@ const BgSwitcher = require("./background-switcher");
 const maxNames = 5;
 var generator = NameGen.compile(/*"G The P k Q"*/
             //"The P Q"
-            "G The P"
+            window.GENERATOR_PATTERN?htmlDecode(window.GENERATOR_PATTERN):"G The P"
 
 );
 var output = document.querySelector(".output");
@@ -24,7 +24,7 @@ document.querySelector("button[name=go]").onclick = () =>{
     for (var i=0;i<maxNames;i++){
         var p = document.createElement("p");
         var generatedName = generator.toString().capitalize();
-        p.innerHTML = '<button class="btn btn-outline-light"> '+generatedName + ' | <i class="bi bi-clipboard-check"></i> Copy</button>';
+        p.innerHTML = '<button class="btn btn-outline-light btn-lg"> '+generatedName + ' | <i class="bi bi-clipboard-check"></i> Copy</button>';
         var btn = output.appendChild(p).firstChild;
         btn["data-txt"] = generatedName;
         btn.onclick = copyToClipboard;
@@ -53,3 +53,10 @@ function copyToClipboard(e) {
   String.prototype.capitalize = function() {
     return this.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase());
   }
+
+function htmlDecode(input){
+  var e = document.createElement('textarea');
+  e.innerHTML = input;
+  // handle case of empty input
+  return e.childNodes.length === 0 ? "" : e.childNodes[0].nodeValue;
+}

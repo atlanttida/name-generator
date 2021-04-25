@@ -3,7 +3,10 @@
 @import "vendor/layout.scss";
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
 
-
+a.logo{
+  text-decoration:none;
+  color:white;
+}
 .output,
 .output button {
   text-transform: capitalize;
@@ -19,10 +22,11 @@ body.bg-image {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  box-shadow:none!important;
   &::before {
     display: block;
     background: black;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     content: " ";
@@ -30,6 +34,7 @@ body.bg-image {
     bottom: 0;
     opacity: 0.6;
     z-index: -1;
+    box-shadow: inset 0 0 5rem rgba(0, 0, 0,0.5);
   }
 
   &.bg-image-1 {
@@ -46,6 +51,68 @@ body.bg-image {
   }
   &.bg-image-5 {
     background-image: url(../img/scifi-3617337_1920.jpg);
+  }
+  &.bg-image-6 {
+    background-image: url(../img/andre-hunter-ugjPgy2BQug-unsplash.jpg);
+  }
+  &.bg-image-7 {
+    background-image: url(../img/manny-moreno-CJZXBsXXlDI-unsplash.jpg);
+  }
+
+  &.bg-image-8 {
+    background-image: url(../img/xbox-2606608_1920.jpg);
+  }
+  &.bg-image-9 {
+    background-image: url(../img/human-3055939_1920.jpg);
+  }
+  
+}
+
+.selector{
+  display:inline-block;
+  span{
+    border-bottom:3px solid white;
+    cursor:pointer;
+
+    background: white;
+    color: black;
+    text-shadow: none;
+    border-radius: 0.5em;
+    padding: 0.1em 0.5em;
+    line-height: 1.8em;
+  }
+  span:after{
+    content:'▼';
+    font-size:0.5em;
+    margin-left:0.5em;
+    vertical-align: middle;
+  }
+  ul{
+    opacity:0;
+    padding:0;
+    position:absolute;
+    z-index:999;
+    background-color:white;
+    text-align:left;
+    background-color:#271f30bf;
+    border: 3px solid white;
+    border-radius: 0 1em 1em 1em;
+    padding-bottom: 0.5em;
+    padding-top: 0.25em;
+    transition:all 0.5s;
+  }
+  li{
+    padding:0.1em 0.5em;
+    transition:all 0.5s;
+    &:hover{
+      text-shadow: 0 0 2px white;
+      transform: translate3d(2px, 0px, 0px);
+    }
+  }
+
+  a{
+    text-decoration:none;
+    color:white;
   }
 }
 
