@@ -1,4 +1,4 @@
-const DOMAIN_FULL_URL = "https://www.nicknamge-generator.net"
+const DOMAIN_FULL_URL = "https://www.nickname-generator.net"
 var hbs = require('hbs');
 const fs = require('fs');
 const path = require("path")
