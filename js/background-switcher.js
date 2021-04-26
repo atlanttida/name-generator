@@ -1,4 +1,4 @@
-const numBackgrounds = 9;
+const numBackgrounds = 13;
 function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
 }

@@ -2,6 +2,7 @@
 @import "vendor/bootstrap.scss";
 @import "vendor/layout.scss";
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
+@import "parts/bg-images.scss";
 
 a.logo{
   text-decoration:none;
@@ -30,58 +31,23 @@ a.logo{
       opacity: 1;
   }
 }
-
-body.bg-image {
-  background: none no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  box-shadow:none!important;
-  &::before {
-    display: block;
-    background: black;
-    position: fixed;
-    top: 0;
-    left: 0;
-    content: " ";
-    right: 0;
-    bottom: 0;
-    opacity: 0.6;
-    z-index: -1;
-    box-shadow: inset 0 0 5rem rgba(0, 0, 0,0.5);
+.btn{
+  &.back:before{
+    content:'🡰';
+    margin-right: 0.3em;
+    vertical-align: middle;
   }
-
-  &.bg-image-1 {
-    background-image: url(../img/forest-931706_1920.jpg);
+  &.btn-link{
+    text-decoration:none;
+    &:focus{
+      box-shadow:none;
+    }
+    &.white{
+      color:white;
+    }
   }
-  &.bg-image-2 {
-    background-image: url(../img/fantasy-4388628_1920.jpg);
-  }
-  &.bg-image-3 {
-    background-image: url(../img/landscape-5811471_1920.jpg);
-  }
-  &.bg-image-4 {
-    background-image: url(../img/city-5848267_1920.jpg);
-  }
-  &.bg-image-5 {
-    background-image: url(../img/scifi-3617337_1920.jpg);
-  }
-  &.bg-image-6 {
-    background-image: url(../img/andre-hunter-ugjPgy2BQug-unsplash.jpg);
-  }
-  &.bg-image-7 {
-    background-image: url(../img/manny-moreno-CJZXBsXXlDI-unsplash.jpg);
-  }
-
-  &.bg-image-8 {
-    background-image: url(../img/xbox-2606608_1920.jpg);
-  }
-  &.bg-image-9 {
-    background-image: url(../img/human-3055939_1920.jpg);
-  }
-  
 }
+
 
 .selector{
   display:inline-block;
