@@ -72,6 +72,7 @@ a.logo{
     opacity:0;
     padding:0;
     position:absolute;
+    visibility:hidden;
     z-index:999;
     background-color:white;
     text-align:left;
@@ -108,6 +109,34 @@ a.logo{
   }
 }
 
+
+.post,.page{
+    font-size: 1.3em;
+    line-height:1.6;
+    text-align:left;
+    p:first-of-type {
+      font-size: 130%;
+    }
+    ul{
+      list-style:disc;
+    }
+    .blockquote{
+      box-shadow:-0.5em 0 0 white;
+      padding:0.2em 0 0.2em 1em;
+      margin-left:-1em;
+    }
+    dl{
+      
+      dt{
+        font-size:1.5em;
+        margin-botton:1em;
+        margin-top:1.2em;
+      }
+      dd{
+        font-style:italic;
+      }
+    }
+}
 
 
 @import "mobile.scss";

@@ -4,8 +4,23 @@
           <main class="px-3">
             <i class="usr bi bi-person-circle" style="font-size:10vw"></i>
             <h1>Generate Your
+                <script type="text/javascript">
+                    function toggleSelector(selector){
+                        var el = selector.parentNode.querySelector('ul');
+                        el.style.opacity=el.style.opacity==0?1:0;
+                        if (el.style.opacity==0){
+                            setTimeout(function(){
+                                    el.style.visibility="hidden";
+                            },500);
+                        } else {
+                           setTimeout(function(){
+                                el.style.visibility="visible";
+                            },0); 
+                        }
+                    }
+                </script>
                 <nav class="selector">
-                    <span onclick="var el = this.parentNode.querySelector('ul');el.style.opacity=el.style.opacity==0?1:0;">Select A Generator</span>
+                    <span onclick="toggleSelector(this)">Select A Generator</span>
                     <ul>
                         {{#each generators}}
                         <li><a href="{{url}}">{{name}}</a></li>
@@ -16,26 +31,5 @@
             <p class="lead">{{#if shortDescription}}{{shortDescription}}{{else}}Quickly generate random names{{/if}}</p>
             <hr>
             
-
-            <p style="margin-top:100px">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-            <p style="margin-top:100px">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-            <p style="margin-top:100px">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
           </main>
