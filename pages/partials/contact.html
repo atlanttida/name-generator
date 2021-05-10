@@ -1,0 +1,58 @@
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+<script type="text/javascript">
+(function() {
+emailjs.init("user_j16ICfXpSVKODeiYY0lSh");
+})();
+</script>
+<script>
+	function send(){
+		emailjs.sendForm('service_7unjgtg', 'template_ctrjh0l', '#contact-form')
+		    .then(function(response) {
+		       console.log('SUCCESS!', response.status, response.text);
+		       document.querySelector(".response").innerHTML = "Your message was sent! We will answer as soon as possible";
+		       document.querySelector("form").style.display = 'none';
+		    }, function(error) {
+		       console.log('FAILED...', error);
+		       document.querySelector(".response").innerHTML = "There was an error while processing your request. Please make sure you filled all fields correctly and you checked the 'I'm not a robot' checkbox";
+		    });
+	}
+</script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<section class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+	<section class="border p-4 d-flex justify-content-center mb-4">
+		<form id="contact-form" class="text-start mx-auto" style="width: 100%; max-width: 300px" onsubmit="send();return false;">
+		
+        <h2>Contact us</h2>
+
+        <!-- Name input -->
+        <div class="form-outline mb-4">
+          <input type="text" id="name" name="name" class="form-control">
+          <label class="form-label" for="name" style="margin-left: 0px;">Name</label>
+        <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 48.6px;"></div><div class="form-notch-trailing"></div></div></div>
+
+        <!-- Email input -->
+        <div class="form-outline mb-4">
+          <input type="email" id="email" name="email" class="form-control">
+          <label class="form-label" for="email" style="margin-left: 0px;">Email address</label>
+        <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 124.8px;"></div><div class="form-notch-trailing"></div></div></div>
+
+        <!-- Subject input -->
+        <div class="form-outline mb-4">
+          <input type="text" id="subject" name="subject" class="form-control">
+          <label class="form-label" for="subject" style="margin-left: 0px;">Subject</label>
+        <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 63.4px;"></div><div class="form-notch-trailing"></div></div></div>
+
+        <!-- Message input -->
+        <div class="form-outline mb-4">
+          <textarea class="form-control" id="message" name="message" rows="4"></textarea>
+          <label class="form-label" for="message" style="margin-left: 0px;">Message</label>
+        <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 73px;"></div><div class="form-notch-trailing"></div></div></div>
+		<div class="g-recaptcha" data-sitekey="6LeJOs4aAAAAABeEq9a9r_XAYNs_GbXzOAprfNIB"></div>
+        <!-- Submit button -->
+        <button class="btn btn-primary btn-block mb-4">Send</button>
+
+      </form>
+      <div class="response"></div>
+	</section>
+</section>
