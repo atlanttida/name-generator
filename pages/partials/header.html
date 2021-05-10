@@ -11,20 +11,13 @@
     <link rel="stylesheet" href="/css/style.min.css">
 
     <meta property="og:title" content="{{title}}" />
-    {{#if canonical}}<meta property="og:url" href="{{canonical}}" />{{/if}}
+    {{#if canonical}}<meta property="og:url" content="{{canonical}}" />{{/if}}
     <meta property="og:description" content="{{description}}" />
-    {{#if featured_image}}<meta property="og:image" content="{{featured_image}}" />{{/if}}
+    {{#if featured_image}}<meta property="og:image" content="{{#absolutePath featured_image}}{{/absolutePath}}" />{{/if}}
 </head>
-<body class="d-flex h-100 text-center text-white bg-dark bg-image">
+<body class="d-flex h1-100 text-center text-white bg-dark bg-image {{bodyClass}}">
         <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
           <header class="mb-auto">
-            <div>
-              <h3 class="float-md-start mb-0"><a class="logo" href="/">🕵️‍♂️NIK-G</a></h3>
-              <nav class="nav nav-masthead justify-content-center float-md-end">
-                <a class="nav-link active" aria-current="page" href="/">Home</a>
-                <a class="nav-link" href="#">Blog</a>
-                <a class="nav-link" href="#">Features</a>
-                <a class="nav-link" href="#">Contact</a>
-              </nav>
-            </div>
+            {{>topMenu}}
           </header>
+        {{#if close}}</div>{{/if}}

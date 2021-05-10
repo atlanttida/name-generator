@@ -1,10 +1,10 @@
-<script type="text/javascript">
+<script>
 	
 </script>
           <main class="px-3">
             <i class="usr bi bi-person-circle" style="font-size:10vw"></i>
             <h1>Generate Your
-                <script type="text/javascript">
+                <script>
                     function toggleSelector(selector){
                         var el = selector.parentNode.querySelector('ul');
                         el.style.opacity=el.style.opacity==0?1:0;
@@ -19,14 +19,14 @@
                         }
                     }
                 </script>
-                <nav class="selector">
+                <span class="selector">
                     <span onclick="toggleSelector(this)">🕵️‍♂️Select A Generator</span>
                     <ul>
                         {{#each generators}}
                         <li><a href="{{url}}">{{name}}</a></li>
                         {{/each}}
                     </ul>
-                </nav>
+                </span>
             </h1>
             <p class="lead">{{#if shortDescription}}{{shortDescription}}{{else}}Quickly generate random names{{/if}}</p>
             <hr>

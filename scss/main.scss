@@ -4,6 +4,20 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
 @import "parts/bg-images.scss";
 
+$mov:#d700a0;
+
+em{
+  font-style: italic;
+  font-weight: 700;
+}
+
+a{
+  color:white;
+  &:hover{
+    color:$mov;
+  }
+}
+
 a.logo{
   text-decoration:none;
   color:white;
@@ -109,7 +123,46 @@ a.logo{
   }
 }
 
+.blogRoll{
+  a {
+    color:black;
+    text-decoration:none;
+    &:hover{
+      text-decoration:underline;
+      color:$mov;
+    }
+  }
+}
+.blog-post article{
+  font-size:120%;
+  a {
+    color:$mov;
+  }
+  h2 {
+    font-weight:800;
+    margin-top:1.5em;
 
+    &::after{
+      content: " ";
+      width: 50%;
+      border-bottom: 10px solid $mov;
+      display: block;
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+    }
+  }
+
+  img{
+    width:100%;
+    height:auto;
+    margin:1em 0;
+  }
+
+  ul{
+    list-style:disc;
+    font-weight:500;
+  }
+}
 .post,.page{
     font-size: 1.3em;
     line-height:1.3;
@@ -140,5 +193,17 @@ a.logo{
     }
 }
 
+.d-flex{
+  flex-direction: column;
+}
 
+.no-shadow{
+  text-shadow:none;
+}
+
+.jssocials-shares{
+  a{
+    color:white!important;
+  }
+}
 @import "mobile.scss";
