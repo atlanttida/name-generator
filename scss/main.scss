@@ -3,6 +3,7 @@
 @import "vendor/layout.scss";
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
 @import "parts/bg-images.scss";
+@import "parts/contact-form.scss";
 
 $mov:#d700a0;
 
@@ -135,71 +136,7 @@ a.logo{
   }
 }
 
-#contact-form{
-  .form-outline {
-    position:relative;
-    .form-notch-trailing{
-      width:100%!important;
-    }
-    .form-control{
-      &:focus{
-        -webkit-box-shadow: none!important;
-        box-shadow: none!important;
-        border-color:transparent;
-        &~.form-label{
-          color: #1266f1;
-          transform:translateY(-1rem) translateY(.1rem) scale(.8);
-        }
 
-        &~.form-notch .form-notch-leading {
-            border-top: .125rem solid #1266f1;
-            border-bottom: .125rem solid #1266f1;
-            border-left: .125rem solid #1266f1;
-        }
-        &~.form-notch .form-notch-middle{
-          border-bottom: .125rem solid;
-          border-color: #1266f1;
-        }
-        &~.form-notch .form-notch-trailing{
-            border-top: .125rem solid #1266f1;
-            border-bottom: .125rem solid #1266f1;
-            border-right: .125rem solid #1266f1;
-        }
-      }
-      ~.form-notch {
-          display: -webkit-box;
-          display: -ms-flexbox;
-          display: flex;
-          position: absolute;
-          left: 0;
-          top: 0;
-          width: 100%;
-          max-width: 100%;
-          height: 100%;
-          text-align: left;
-          pointer-events: none;
-      }
-      &~.form-label {
-        position: absolute;
-        top: 0;
-        max-width: 90%;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        left: .75rem;
-        padding-top: .37rem;
-        pointer-events: none;
-        -webkit-transform-origin: 0 0;
-        transform-origin: 0 0;
-        -webkit-transition: all .2s ease-out;
-        transition: all .2s ease-out;
-        color: rgba(0,0,0,.6);
-        margin-bottom: 0;
-      }
-
-    }
-  }
-}
 .blog-post article{
   font-size:120%;
   a {

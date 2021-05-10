@@ -1,9 +1,4 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
-<script type="text/javascript">
-(function() {
-emailjs.init("user_j16ICfXpSVKODeiYY0lSh");
-})();
-</script>
 <script>
 	function send(){
 		emailjs.sendForm('service_7unjgtg', 'template_ctrjh0l', '#contact-form')
@@ -56,3 +51,19 @@ emailjs.init("user_j16ICfXpSVKODeiYY0lSh");
       <div class="response"></div>
 	</section>
 </section>
+
+<script type="text/javascript">
+(function() {
+emailjs.init("user_j16ICfXpSVKODeiYY0lSh");
+	document.querySelectorAll("input,textarea").forEach(
+		(field) => {
+			field.oninput = function(){
+				field.classList.remove("active");
+				if (field.value != ""){
+					field.classList.add("active");
+				}
+			}
+		}
+	);
+})();
+</script>

@@ -31,11 +31,6 @@
 		<h1>Contact Us</h1>
 		<p class="p-3 p-sm-0">Do you have a suggestion for our nickname generators? Don't hesitate to contact us.</p>
 		</div><div class="bg-light text-dark no-shadow mt-5 pb-5 text-start justify-content-center row gx-0"><div class="col-10 col-sm-6 pe-sm-5">		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
-		<script type="text/javascript">
-		(function() {
-		emailjs.init("user_j16ICfXpSVKODeiYY0lSh");
-		})();
-		</script>
 		<script>
 			function send(){
 				emailjs.sendForm('service_7unjgtg', 'template_ctrjh0l', '#contact-form')
@@ -87,7 +82,23 @@
 		      </form>
 		      <div class="response"></div>
 			</section>
-		</section></div><div class='sidebar col-md-2 col-sm'></div></div></article><div>
+		</section>
+		
+		<script type="text/javascript">
+		(function() {
+		emailjs.init("user_j16ICfXpSVKODeiYY0lSh");
+			document.querySelectorAll("input,textarea").forEach(
+				(field) => {
+					field.oninput = function(){
+						field.classList.remove("active");
+						if (field.value != ""){
+							field.classList.add("active");
+						}
+					}
+				}
+			);
+		})();
+		</script></div><div class='sidebar col-md-2 col-sm'></div></div></article><div>
           <footer class="mt-auto text-white-50 pt-5">
             <p>Website by <a href="https://twitter.com/codingdudecom" class="text-white">@codingdudecom</a>.</p>
           </footer>
