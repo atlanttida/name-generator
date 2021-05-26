@@ -23,6 +23,12 @@ hbs.registerHelper('articleContent', function(options) {
     return '<div class="bg-light text-dark no-shadow mt-5 pb-5 text-start justify-content-center row gx-0"><div class="col-10 col-sm-6 pe-sm-5">' + options.fn(this) + "</div><div class='sidebar col-md-2 col-sm'></div></div>";
 });
 
+hbs.registerHelper('image2alt',function(arg1,options){
+	var fileName = path.basename(arg1);
+	fileName = fileName.substring(0,fileName.lastIndexOf("."));
+	return fileName.replace(/-/g," ");
+})
+
 var x = hbs.registerPartials(__dirname + '/pages/partials', function (err) {
 	if (!err){
 		var files = getAllFiles('./pages/docs',[]);//.map(file=>file.replace(/pages[\\|/]/g,''));
