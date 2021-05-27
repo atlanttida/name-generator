@@ -2,7 +2,7 @@
 
 View this site online: [Nickname Generator](https://www.nickname-generator.net/)
 
--
+---
 
 Everybody these days seems to have their own gamertag. From the hardest of core esports fanatics to the chillest of casual phone tappers, they all have their own unique gaming identities. With gaming being such a dominant market, you’d have to be living under a rock to not know about them. Platforms that carry and sell games each have their own unique [type of gamer](https://www.nickname-generator.net/blog/types-of-gamers/) identifier.
 
