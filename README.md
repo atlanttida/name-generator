@@ -32,4 +32,6 @@ For the client side, I used *Bootstrap 5.0.0* and *Sass* to generate the CSS and
 - [Bootstrap](https://getbootstrap.com/)
 - [Browserify](https://browserify.org/)
 
-*Contact me:* [@codingdudecom](https://twitter.com/codingdudecom)
+**Contact me:** [@codingdudecom](https://twitter.com/codingdudecom)
+
+**Follow Nickname Generator:** [@nikgenerator](https://twitter.com/nikgenerator)
