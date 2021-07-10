@@ -6,7 +6,21 @@
     <title>Latest Articles On Nicknames</title>
     <meta name="robots" content="index,follow" />
     <link rel="canonical" href="https://www.nickname-generator.net/blog/" />
-
+    <script type="text/javascript">
+      var disquss = true;
+      var c = 'https://www.nickname-generator.net/blog/';
+      
+      if (c.indexOf('/blog/') < 0 || c.indexOf('/blog/')+6 >= c.length){
+        disquss = false;
+      };
+      var disqus_config = function () {
+        if (!disquss){
+          return;
+        }
+      this.page.url = 'https://www.nickname-generator.net/blog/';  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = 'https://www.nickname-generator.net/blog/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      };
+    </script>
     <meta name="description" content="Nickname generator is the best generator for nicknames, gamertags, gamer names, etc.">
     <link rel="stylesheet" href="/css/style.min.css">
 
@@ -38,7 +52,9 @@
 <article class="d-flex w-100 h-100 mx-auto flex-column pt-5">		<div class="cover-container mx-auto">
 		<h1>Latest Articles On Nicknames</h1>
 		<p class="p-3 p-sm-0">Nickname generator is the best generator for nicknames, gamertags, gamer names, etc.</p>
-		</div><div class="bg-light text-dark no-shadow mt-5 pb-5 text-start justify-content-center row gx-0"><div class="col-10 col-sm-6 pe-sm-5">		
+		</div>
+		
+		<script type="text/javascript" src="/js/disquss.js" defer></script><div class="bg-light text-dark no-shadow mt-5 pb-5 text-start justify-content-center row gx-0"><div class="col-10 col-sm-6 pe-sm-5">		
 		<section class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
 			<div class="container">
 				<article class="mt-5 mb-5">
@@ -90,7 +106,7 @@
 					</a>
 				</article>
 			</div>
-		</section></div><div class='sidebar col-md-2 col-sm'></div></div></article><div>
+		</section><div id="disqus_thread"></div></div><div class='sidebar col-md-2 col-sm'></div></div></article><div>
           <footer class="mt-auto text-white-50 pt-5">
             <p>Website by <a href="https://twitter.com/codingdudecom" rel="external nofollow" class="text-white">@codingdudecom</a>.</p>
           </footer>

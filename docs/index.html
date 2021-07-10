@@ -6,7 +6,21 @@
     <title>Nickname Generator</title>
     <meta name="robots" content="index,follow" />
     <link rel="canonical" href="https://www.nickname-generator.net/" />
-
+    <script type="text/javascript">
+      var disquss = true;
+      var c = 'https://www.nickname-generator.net/';
+      
+      if (c.indexOf('/blog/') < 0 || c.indexOf('/blog/')+6 >= c.length){
+        disquss = false;
+      };
+      var disqus_config = function () {
+        if (!disquss){
+          return;
+        }
+      this.page.url = 'https://www.nickname-generator.net/';  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = 'https://www.nickname-generator.net/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      };
+    </script>
     <meta name="description" content="Need a nickname for girls or boys? Check out our online nickname generator.">
     <link rel="stylesheet" href="/css/style.min.css">
 
