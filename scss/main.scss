@@ -210,4 +210,25 @@ a.logo{
     color:white!important;
   }
 }
+
+
+blockquote.with-bar{
+  position:relative;
+  background:#ddd;
+  color:444;
+  font-size:1.2em;
+  padding:1.5em;
+
+  &:before{
+    border-left: 10px solid #d700a0;
+    display: block;
+    width: 10px;
+    content: " ";
+    min-height: 1em;
+    position: absolute;
+    left: 0em;
+    bottom: 0;
+    top: 0;
+  }
+}
 @import "mobile.scss";
