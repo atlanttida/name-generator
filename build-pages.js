@@ -24,7 +24,18 @@ hbs.registerHelper('absolutePath', function(arg1,options) {
 hbs.registerHelper('articleContent', function(options) {
     return '<div class="bg-light text-dark no-shadow mt-5 pb-5 text-start justify-content-center row gx-0"><div class="col-10 col-sm-6 pe-sm-5">' + options.fn(this) + 
     '<div id="disqus_thread"></div>'+
-    "</div><div class='sidebar col-md-2 col-sm'></div></div>";
+    "</div><div class='sidebar col-md-2 col-sm'>"+
+    `<!-- Nickname Generator Vertical Rectangle (300x600) -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-3421619882899259"
+     data-ad-slot="7805254435"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>`+
+    "</div></div>";
 });
 
 hbs.registerHelper('image2alt',function(arg1,options){
