@@ -101,14 +101,17 @@ function buildBlogRoll(data){
 		var content = fs.readFileSync(__dirname+"/pages/docs/blog/"+postId+"/index.html",'utf8');
 		var re = new RegExp("\\{\\{>header.*?title='(.*?)'.*?description='(.*?)'.*?\\}\\}","sm");
 		var fi = content.match(new RegExp("\\{\\{>header.*?featured_image='(.*?)'.*?\\}\\}","sm"));
-		
+		var date = content.match(new RegExp("\\{\\{>header.*?date='(.*?)'.*?\\}\\}","sm"));
 		data.posts.push({
 			title:content.match(re)[1],
 			url:'/blog/'+postId+'/',
 			description:content.match(re)[2],
-			featured_image:fi!=null?fi[1]:""
+			featured_image:fi!=null?fi[1]:"",
+			date:date && new Date(date[1]).getTime()
 		})
 	});
+
+	data.posts = data.posts.sort((a,b) => a.date<b.date?1:-1);
 }
 
 
