@@ -176,6 +176,26 @@ a.logo{
     list-style:disc;
     font-weight:500;
   }
+
+  ol.numbered{
+    list-style: decimal;
+    line-height: 1.8em;
+    margin: 1.5em;
+  }
+
+  .bold{
+    font-weight:bold;
+  }
+
+  code{
+    font-size:1.8em;
+  }
+  .go-back:after{
+    content: '↑ BACK';
+    margin: 1em 0;
+    display: block;
+    text-align: right;
+  }
 }
 .post,.page{
     font-size: 1.3em;
