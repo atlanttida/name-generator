@@ -29,6 +29,10 @@
     <link rel="stylesheet" href="/css/style.min.css">
 
     <meta property="og:title" content="{{title}}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Nickname Generator" />
+    <meta property="article:section" content="Technology" />
+    {{#if tags}}<meta property="article:tag" content="{{tags}}" />{{/if}}
     {{#if canonical}}<meta property="og:url" content="{{canonical}}" />{{/if}}
     <meta property="og:description" content="{{description}}" />
     {{#if featured_image}}<meta property="og:image" content="{{#absolutePath featured_image}}{{/absolutePath}}" />{{/if}}
