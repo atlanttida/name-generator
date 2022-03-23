@@ -170,6 +170,7 @@ a.logo{
     width:100%;
     height:auto;
     margin:1em 0;
+    aspect-ratio: attr(width) / attr(height);
   }
 
   ul{
@@ -239,6 +240,10 @@ a.logo{
   a{
     color:white!important;
   }
+}
+
+#share{
+  min-height:60px;
 }
 
 
