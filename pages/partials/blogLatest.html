@@ -1,0 +1,15 @@
+<div class="blog-latest">
+	<section class="container d-flex w-100 h-100 m-b-3 mx-auto flex-lg-row">	
+			{{#slice posts offset="0" limit="3"}}
+			<div class="card">
+				<a href="{{url}}">
+			  <img class="card-img-top" src="{{featured_image}}" alt="{{image2alt featured_image}}">
+			  <div class="card-body">
+			    <h5 class="card-title">{{title}}</h5>
+			  </div>
+			  </a>
+			</div>
+			{{/slice}}
+		
+	</section>
+</div>

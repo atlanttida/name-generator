@@ -9,7 +9,7 @@ hbs.registerHelper('test', function(arg1,arg2,options) {
 
 hbs.registerHelper('article', function(options) {
     return '<article class="d-flex w-100 h-100 mx-auto flex-column pt-5">' 
-    + options.fn(this) 
+    + options.fn(this)
     + "</article>";
 });
 
@@ -22,7 +22,16 @@ hbs.registerHelper('absolutePath', function(arg1,options) {
 });
 
 hbs.registerHelper('articleContent', function(options) {
-    return '<div class="bg-light text-dark no-shadow mt-5 pb-5 text-start justify-content-center row gx-0"><div class="col-10 col-sm-6 pe-sm-5">' + options.fn(this) + 
+	var template = hbs.compile("{{>blogLatest}}");
+	var data = {};
+	buildBlogRoll(data);
+	var blogLatest = "";
+	if(!this.canonical.endsWith("/blog/")){
+		blogLatest = template(data);
+	}
+    return '<div class="bg-light text-dark no-shadow mt-5 pb-5 text-start justify-content-center row gx-0"><div class="col-10 col-sm-6 pe-sm-5">' + 
+    options.fn(this) + 
+    blogLatest +
     '<div id="disqus_thread"></div>'+
     "</div><div class='sidebar col-md-2 col-sm'>"+
     `<!-- Nickname Generator Vertical Rectangle (300x600) -->
@@ -45,7 +54,19 @@ hbs.registerHelper('image2alt',function(arg1,options){
 })
 
 
+hbs.registerHelper('slice', function(context, block) {
+var ret = "",
+  offset = parseInt(block.hash.offset) || 0,
+  limit = parseInt(block.hash.limit) || 5,
+  i = (offset < context.length) ? offset : 0,
+  j = ((limit + offset) < context.length) ? (limit + offset) : context.length;
 
+for(i,j; i<j; i++) {
+  ret += block.fn(context[i]);
+}
+
+  return ret;
+});
 
 var x = hbs.registerPartials(__dirname + '/pages/partials', function (err) {
 	if (!err){

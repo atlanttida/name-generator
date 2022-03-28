@@ -1,7 +1,7 @@
 
 <section class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
 	<div class="container">
-		{{#each posts}}
+		{{#slice posts offset="0" limit="10"}}
 		<article class="mt-5 mb-5">
 			<a href="{{url}}" class="d-flex text-start flex-row">
 				<div class="thumbnail col-sm-4">
@@ -14,6 +14,6 @@
 				</div>
 			</a>
 		</article>
-		{{/each}}
+		{{/slice}}
 	</div>
 </section>
