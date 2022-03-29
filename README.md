@@ -10,10 +10,10 @@ Everybody these days seems to have their own gamertag. From the hardest of core 
 
 Nickname-Generator.NET is a website containing various online name generators:
 
-- Gamertags for boys
-- Gamertags for girls
-- Nicknames for boys
-- Nicknames for girls
+- [Gamertags for boys](https://www.nickname-generator.net/gamer-name/)
+- [Gamertags for girls](https://www.nickname-generator.net/gamer-girl-name/)
+- [Nicknames for boys](https://www.nickname-generator.net/nicknames-for-boys/)
+- [Nicknames for girls](https://www.nickname-generator.net/nicknames-for-girls/)
 
 ## Tech info
 
