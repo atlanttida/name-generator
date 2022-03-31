@@ -1,3 +1,4 @@
+Sitemap: https://www.nickname-generator.net/sitemap.xml
+
 User-Agent: *
 Allow: /
-https://www.nickname-generator.net/sitemap.xml
