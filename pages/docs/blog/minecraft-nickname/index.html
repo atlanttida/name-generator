@@ -18,6 +18,63 @@
             <img src="/img/minecraft-nicknames-1.webp" alt="Minecraft Nicknames">
             <figcaption>Minecraft Nicknames</figcaption>
         </figure>
+
+        <h2>Minecraft Name Checker: Generate Unique Minecraft Nicknames</h2>
+        <p>When you want to choose a nickname or gamer tag for a game, you always need to find one that is unique.<br/><br/>
+            But how can you check Minecraft name availability?
+            <br/><br/>
+
+        I made this super simple tool for checking if the name you chose is a unique Minecraft nickname. Just input the name you want to check and click the <b>CHECK</b> button.
+        </p>
+        <style type="text/css">
+            form.minecraft-nickname-checker{
+                text-align: center;
+                font-size: 2em;
+            }
+            form.minecraft-nickname-checker input,
+            form.minecraft-nickname-checker button{
+                border-radius: 0.3em;
+                padding: 0.1em 0.5em;
+                box-shadow: 0 5px rgb(0 0 0 / 10%);
+                border: 3px solid #d700a0;
+            }
+            form.minecraft-nickname-checker button{
+                color: white;
+                background: #d700a0;
+            }
+            form.minecraft-nickname-checker button:active{
+                zoom: 0.95;
+                margin-right: 10px;
+            }
+
+            form.minecraft-nickname-checker p
+            {
+                font-weight: bold;
+                color: #d700a0;
+                font-size: 0.65em;
+            }
+        </style>
+        <form class="minecraft-nickname-checker" onsubmit="return false">
+            <input type="text" name="nickname">
+            <button>CHECK</button>
+            <p></p>
+        </form>
+        <script type="text/javascript">
+            console.log("xxxxxxxxxxxxxx")
+            var checkBtn = document.querySelector(".minecraft-nickname-checker button");
+            var nickname = document.querySelector(".minecraft-nickname-checker input");
+            var result = document.querySelector(".minecraft-nickname-checker p");
+            checkBtn.onclick = ()=>{
+                fetch(`https://www.nickname-generator.net/minecraft-check-name/${nickname.value}`)
+                .then((response) => {
+                    var txt = "✘ THIS MINECRAFT NAME IS ALREADY TAKEN";
+                    if (response.status !== 200){
+                        txt = "✓ GREAT NAME! THIS MINECRAFT NAME IS NOT ALREADY TAKEN"
+                    }
+                    result.innerText = txt;
+                });
+            }
+        </script>
         <h2>Cool, Awesome, Creative Minecraft Nicknames</h2>
         <p>The Minecraft universe is fascinating. If you're wondering <strong>how many users play Minecraft</strong>, the answer is around <b>141 million users</b>. The cubic fantasy world is filled with stories and finding a cool Minecraft nickname that is unique can be a daunting task.<br/><br/>
         Therefore in this article I will help you find the most awesome Minecraft nickname for you.</p>
@@ -1029,6 +1086,7 @@
 
 
         <h2>Minecraft Characters Names</h2>
+        <img src="/img/minecraft-character-names.webp" alt="Minecraft Character Names">
         <p>A good source for Minecraft nickname ideas is the Minecraft universe itself. Let's take a look at the names of the characters in Minecraft. Here's a list of Minecraft characters:</p>
             <h3>Minecraft Jesse's Group Character Names</h3>
         <p>If you play <strong>Minecraft: Story mode</strong> you will find the center group called <strong>Jesse's group</strong>. And here's the full list of character names in Jesse's group:</p>
@@ -1077,12 +1135,181 @@
                 <li>PorcChop</li>
             </ul>
         <h2>Minecraft Faction Names</h2>
+
+        <img src="/img/minecraft-faction.webp" alt="Minecraft Faction">
         <p>If you are a teamplayer and like playing in co-op with your friends then you'll want to join a faction or clan. Or, you might want to form your own.<br/><br/>
             So, what should I name my faction in Minecraft you ask?<br/><br/>
         Here are some cool Minecraft faction name ideas that you can use. Keep in mind, that a badass epic Mincraft name for your clan might draw attention and bring in other players to help you with your game strategy.
         </p>
+        <ol class="numbered bold">
+            <li>Absolute</li>
+            <li>Adjourned</li>
+            <li>Alliance</li>
+            <li>Amazon</li>
+            <li>Anarchy</li>
+            <li>Apparition</li>
+            <li>Aurora</li>
+            <li>Avalanche</li>
+            <li>Aztec</li>
+            <li>Band</li>
+            <li>Bandits</li>
+            <li>Bedlam</li>
+            <li>Bimyou</li>
+            <li>Bonfire</li>
+            <li>Brinille</li>
+            <li>Bunch</li>
+            <li>Cabal</li>
+            <li>Calamity</li>
+            <li>Camp</li>
+            <li>Cashmere</li>
+            <li>Casualties</li>
+            <li>Caucus</li>
+            <li>Celestial</li>
+            <li>Coalition</li>
+            <li>Combination</li>
+            <li>Combine</li>
+            <li>Combo</li>
+            <li>Commotion</li>
+            <li>Concern</li>
+            <li>Conclave</li>
+            <li>Crisis</li>
+            <li>Crusaders</li>
+            <li>Curators</li>
+            <li>Darkened</li>
+            <li>Dawn</li>
+            <li>Defiance</li>
+            <li>Demonic</li>
+            <li>Depraved</li>
+            <li>Desire</li>
+            <li>Diminish</li>
+            <li>Dimlight</li>
+            <li>Disaster</li>
+            <li>Disclosure</li>
+            <li>Dismissed</li>
+            <li>Dynamic</li>
+            <li>Echo</li>
+            <li>Eerie</li>
+            <li>Elysian</li>
+            <li>Enlightment</li>
+            <li>Escape</li>
+            <li>Ethreal</li>
+            <li>Evanesce</li>
+            <li>Evolved</li>
+            <li>Exo</li>
+            <li>Expired</li>
+            <li>Extinct</li>
+            <li>Extremes</li>
+            <li>Fabled</li>
+            <li>Fallen</li>
+            <li>Fantastical</li>
+            <li>Fate</li>
+            <li>Fernweh</li>
+            <li>Fictitious</li>
+            <li>Fortune</li>
+            <li>Fragments</li>
+            <li>Fresco</li>
+            <li>Frostbite</li>
+            <li>Galactic</li>
+            <li>Gang</li>
+            <li>Gangsters</li>
+            <li>Gatekeepers</li>
+            <li>Gentry</li>
+            <li>Goblins</li>
+            <li>Guardians</li>
+            <li>Heroic</li>
+            <li>Hijackers</li>
+            <li>Huntsmen</li>
+            <li>Illusion</li>
+            <li>Imaginary</li>
+            <li>Indigo</li>
+            <li>Irusu</li>
+            <li>Jailbirds</li>
+            <li>Junta</li>
+            <li>Kalopsia</li>
+            <li>Keepers</li>
+            <li>Komorebi</li>
+            <li>Kryptic</li>
+            <li>Lawless</li>
+            <li>Legends</li>
+            <li>Limbo</li>
+            <li>Loners</li>
+            <li>Madness</li>
+            <li>Maestro</li>
+            <li>Mainstream</li>
+            <li>Masquerade</li>
+            <li>Maximum</li>
+            <li>Mayhem</li>
+            <li>Minority</li>
+            <li>Mirage</li>
+            <li>Mutiny</li>
+            <li>Mystique</li>
+            <li>Mythic</li>
+            <li>Mythical</li>
+            <li>NecoCrypt</li>
+            <li>Nefarious</li>
+            <li>Nemophilists</li>
+            <li>Nexus</li>
+            <li>Nightwatch</li>
+            <li>Nobility</li>
+            <li>Nova</li>
+            <li>Nuclear</li>
+            <li>Oblivion</li>
+            <li>OblivionRevenge</li>
+            <li>Panic</li>
+            <li>Party</li>
+            <li>Payback</li>
+            <li>Perception</li>
+            <li>Phobia</li>
+            <li>Pinnacle</li>
+            <li>Predators</li>
+            <li>Predatory</li>
+            <li>Prophets</li>
+            <li>Purge</li>
+            <li>Raiders</li>
+            <li>Ravenous</li>
+            <li>Rebellion</li>
+            <li>Reckoning</li>
+            <li>Reclusive</li>
+            <li>Refusal</li>
+            <li>Resistance</li>
+            <li>Retribution</li>
+            <li>Revenge</li>
+            <li>Rogue</li>
+            <li>Ruined</li>
+            <li>Savage</li>
+            <li>Scoundrels</li>
+            <li>Sentinels</li>
+            <li>Shadows</li>
+            <li>Shambles</li>
+            <li>Silence</li>
+            <li>Snafu</li>
+            <li>Solitude</li>
+            <li>Strike</li>
+            <li>Symbolic</li>
+            <li>Talons</li>
+            <li>Tempest</li>
+            <li>Threat</li>
+            <li>Timberwolves</li>
+            <li>Transistor</li>
+            <li>Trappers</li>
+            <li>Turmoil</li>
+            <li>Twighlight</li>
+            <li>Twilight</li>
+            <li>Twisted</li>
+            <li>Twizzle</li>
+            <li>Ukiyo</li>
+            <li>Unofficial</li>
+            <li>Vanished</li>
+            <li>Velocity</li>
+            <li>Villigence</li>
+            <li>Vortex</li>
+            <li>Wicked</li>
+            <li>Wing</li>
+            <li>Wintersong</li>
+            <li>Yoish</li>
+        </ol>
             <!--
-        <h2>Minecraft Name Checker</h2>
+        
         
         <p>Check Minecraft Name Availability</p>
         <h2>Minecraft Nickname Colors</h2>
