@@ -65,6 +65,7 @@
             var nickname = document.querySelector(".minecraft-nickname-checker input");
             var result = document.querySelector(".minecraft-nickname-checker p");
             checkBtn.onclick = ()=>{
+                result.innerText = "";
                 fetch(`https://www.nickname-generator.net/minecraft-check-name/${nickname.value}`)
                 .then((response) => {
                     var txt = "✘ THIS MINECRAFT NAME IS ALREADY TAKEN";
