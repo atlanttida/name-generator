@@ -128,7 +128,7 @@
 
 		const cf_worker = `https://www.nickname-generator.net/api/ai-character-generator/?characterType=${characterType}&responseType=json`;
 		fetch(cf_worker)
-			.then(response => response.json)
+			.then(response => response.json())
 			.then(data => {
 				event.submitter.classList.remove("loading");
 				document.getElementById("characterResult").innerHTML = html_template(data);
