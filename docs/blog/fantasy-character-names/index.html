@@ -196,6 +196,7 @@
 	function generateCharacter(event){
 		if(!event.submitter.classList.contains("loading")){
 			event.submitter.classList.add("loading");
+			event.submitter.disabled = true;
 		}
 		var charClass = document.getElementById("charClass").value,
 			charRace = document.getElementById("charRace").value,
@@ -209,6 +210,7 @@
 			.then(response => response.json())
 			.then(data => {
 				event.submitter.classList.remove("loading");
+				event.submitter.disabled = false;
 				document.getElementById("characterResult").innerHTML = html_template(data);
 			});
 	}
