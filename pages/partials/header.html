@@ -28,7 +28,9 @@
     <meta name="description" content="{{description}}">
     <meta name="robots" content="max-image-preview:large" />
     {{#if tags}}<meta name="keywords" content="{{tags}}" />{{/if}}
-    <link rel="stylesheet" href="/css/style.min.css" rel="preload">
+    
+    <link rel="preload" href="/css/style.min.css" as="style">
+    <link rel="stylesheet" href="/css/style.min.css">
 
     <meta property="og:title" content="{{title}}" />
     <meta property="og:type" content="article" />
