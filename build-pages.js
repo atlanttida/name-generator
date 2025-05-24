@@ -55,11 +55,14 @@ hbs.registerHelper('image2alt',function(arg1,options){
 
 
 hbs.registerHelper('slice', function(context, block) {
+
 var ret = "",
   offset = parseInt(block.hash.offset) || 0,
   limit = parseInt(block.hash.limit) || 5,
   i = (offset < context.length) ? offset : 0,
   j = ((limit + offset) < context.length) ? (limit + offset) : context.length;
+
+
 
 for(i,j; i<j; i++) {
   ret += block.fn(context[i]);
@@ -68,9 +71,141 @@ for(i,j; i<j; i++) {
   return ret;
 });
 
+
+
+// New pagination helper
+hbs.registerHelper('pagination', function(options) {
+	  if (!this.pagination || this.pagination.totalPages <= 1) {
+        return '';
+    }
+    
+    const p = this.pagination;
+    if (options.data.root.currentPage){
+    	p.currentPage = options.data.root.currentPage;
+    }
+    let html = '<nav aria-label="Blog pagination" class="mt-5" id="pagination"><ul class="pagination justify-content-center">';
+    
+    // Previous button
+    if (p.currentPage > 1) {
+        const prevUrl = p.currentPage === 2 ? '/blog/' : `${p.currentPage - 1}/`;
+        html += `<li class="page-item">
+            <a class="page-link" href="${prevUrl}" rel="prev" aria-label="Previous page">
+                <span aria-hidden="true">&laquo;</span> Previous
+            </a>
+        </li>`;
+    } else {
+        html += `<li class="page-item disabled">
+            <span class="page-link"><span aria-hidden="true">&laquo;</span> Previous</span>
+        </li>`;
+    }
+    
+    // Page numbers
+    const startPage = Math.max(1, p.currentPage - 2);
+    const endPage = Math.min(p.totalPages, p.currentPage + 2);
+    
+    // First page + ellipsis if needed
+    if (startPage > 1) {
+        html += `<li class="page-item">
+            <a class="page-link" href="/blog/">1</a>
+        </li>`;
+        if (startPage > 2) {
+            html += `<li class="page-item disabled"><span class="page-link">...</span></li>`;
+        }
+    }
+    
+    // Current range of pages
+    for (let i = startPage; i <= endPage; i++) {
+        const pageUrl = i === 1 ? '/blog/' : `/blog/${i}/`;
+        const isActive = i === p.currentPage;
+        
+        html += `<li class="page-item ${isActive ? 'active' : ''}">
+            <a class="page-link" href="${pageUrl}" ${isActive ? 'aria-current="page"' : ''}>${i}</a>
+        </li>`;
+    }
+    
+    // Last page + ellipsis if needed
+    if (endPage < p.totalPages) {
+        if (endPage < p.totalPages - 1) {
+            html += `<li class="page-item disabled"><span class="page-link">...</span></li>`;
+        }
+        html += `<li class="page-item">
+            <a class="page-link" href="/blog/${p.totalPages}/">${p.totalPages}</a>
+        </li>`;
+    }
+    
+    // Next button
+    if (p.currentPage < p.totalPages) {
+        html += `<li class="page-item">
+            <a class="page-link" href="${p.currentPage + 1}/" rel="next" aria-label="Next page">
+                Next <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>`;
+    } else {
+        html += `<li class="page-item disabled">
+            <span class="page-link">Next <span aria-hidden="true">&raquo;</span></span>
+        </li>`;
+    }
+    
+    html += '</ul></nav>';
+
+    html +=`<style>/* Pagination container */
+#pagination .pagination {
+    padding-left: 0;
+    margin: 0;
+    list-style: none;
+    border-radius: 0.5rem;
+    font-family: sans-serif;
+}
+
+/* Page items */
+#pagination .page-item {
+    margin: 0 4px;
+}
+
+/* Links */
+#pagination .page-link {
+    color: #007bff;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    padding: 8px 14px;
+    font-size: 0.95rem;
+    border-radius: 6px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    text-decoration: none;
+}
+
+/* Hover */
+#pagination .page-link:hover {
+    background-color: #f1f1f1;
+    color: #0056b3;
+}
+
+/* Active page */
+#pagination .page-item.active .page-link {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #fff;
+    cursor: default;
+}
+
+/* Disabled state */
+#pagination .page-item.disabled .page-link {
+    color: #6c757d;
+    background-color: #f8f9fa;
+    border-color: #dee2e6;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+</style>`
+
+    return html;
+});
+
+
 var x = hbs.registerPartials(__dirname + '/pages/partials', function (err) {
 	if (!err){
 		var files = getAllFiles('./pages/docs',[]);//.map(file=>file.replace(/pages[\\|/]/g,''));
+
 		var data={};
 		data.pages = files.map(file =>{
 			return {
@@ -111,7 +246,30 @@ var x = hbs.registerPartials(__dirname + '/pages/partials', function (err) {
 			fs.writeFileSync(__dirname+'/'+file.replace(/pages[\\|/]/g,''),html);
 		})
 
-		
+		if (data.posts.length > 10){
+			var page = 2, totalPages = Math.ceil(data.posts.length / 10),totalPosts = data.posts.length;
+			while (page < totalPages+1){
+				var dir = __dirname+'/docs/blog/'+page;
+
+				if (!fs.existsSync(dir)){
+				    fs.mkdirSync(dir);
+				}
+
+				
+
+				var content = fs.readFileSync(__dirname+"/pages/docs/blog/index.html",'utf8');
+				content = content.replace(`{{>blogRoll offset="0" limit="10"}}`,`{{>blogRoll offset="${(page-1)*10}" limit="10"}}`);
+
+				content = content.replace(`{{pagination}}`,`{{pagination page="${page}"}}`);
+				var template = hbs.compile(content);
+
+				data.canonical = DOMAIN_FULL_URL + `/blog/${page}/`;
+				data.currentPage = page;
+				var html = template(data);
+				fs.writeFileSync(__dirname+'/docs/blog/'+page+"/index.html",html);
+				page++;
+			}
+		}
 	}
 });
 
@@ -133,6 +291,18 @@ function buildBlogRoll(data){
 	});
 
 	data.posts = data.posts.sort((a,b) => a.date<b.date?1:-1);
+
+	var page = data.currentPage || 1, totalPages = Math.ceil(data.posts.length / 10),totalPosts = data.posts.length;
+	data.pagination = {
+		currentPage: page,
+		totalPages: totalPages,
+		totalPosts: totalPosts,
+		hasNext: page < totalPages,
+		hasPrev: page > 1,
+		nextPage: page < totalPages ? page + 1 : null,
+		prevPage: page > 1 ? page - 1 : null
+	};
+
 }
 
 
