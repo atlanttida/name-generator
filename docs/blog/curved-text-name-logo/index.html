@@ -70,6 +70,37 @@
 	ol{
 		list-style-type: number;
 	}
+.color-box {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      margin-right: 5px;
+      border-radius: 6px;
+      cursor: pointer;
+      border: 1px solid #ccc;
+      transition: transform 0.2s ease;
+      position: relative;
+    }
+    .color-box:hover {
+      transform: scale(1.1);
+    }
+    .tooltip {
+      visibility: hidden;
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      border-radius: 4px;
+      padding: 5px;
+      position: absolute;
+      z-index: 1;
+      bottom: 125%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.75em;
+    }
+    .color-box:hover .tooltip {
+      visibility: visible;
+    }
 </style>
 
 
@@ -80,7 +111,7 @@
 </figure>
 <p>Whether you&#39;re on Twitch, Discord, Steam, or YouTube, one thing is certain: your <strong>gamer tag</strong> or <strong>online nickname</strong> is a big part of your identity. But in today’s hyper-visual gaming and streaming world, your name isn’t just meant to be heard — it’s meant to be <em>seen</em>.</p>
 <p>That’s where design comes in. And one of the easiest ways to turn your name into a sleek, stylish logo is by using <strong>curved text</strong>. It’s eye-catching, unique, and lets you easily create a <strong>badge, emblem, or circular gamer logo</strong> — even if you have zero graphic design experience.</p>
-<p>In this step-by-step guide, we’ll show you how to transform your nickname into a <strong>visually impressive logo</strong> using the <a href="https://www.mockofun.com/tutorials/curved-text-generator/"><strong>MockoFun curved text generator</strong></a>. From picking the perfect nickname to styling it with fonts, colors, and effects — we’ve got you covered.</p>
+<p>In this step-by-step guide, we’ll show you how to transform your nickname into a <strong>visually impressive logo</strong> using the MockoFun <a href="https://www.mockofun.com/tutorials/curved-text-generator/"><strong>curved text generator</strong></a>. From picking the perfect nickname to styling it with fonts, colors, and effects — we’ve got you covered.</p>
 <hr>
 <h2 id="-step-1-start-with-a-killer-nickname">🎮 Step 1: Start With a Killer Nickname</h2>
 <img src="/img/gamer-nickname-username.webp" alt="Choose gamer nickname or username">
@@ -101,7 +132,7 @@
 <p>Once you’ve chosen the perfect name, it’s time to turn it into something visual.</p>
 <hr>
 <h2 id="-step-2-open-mockofun-s-curved-text-generator">✏️ Step 2: Open MockoFun’s Curved Text Generator</h2>
-<p>The best way to get a <strong>clean, professional logo design</strong> fast is by using the right tool. And that tool is <a href="https://www.mockofun.com/tutorials/curved-text-generator/"><strong>MockoFun’s Curved Text Generator</strong></a>.</p>
+<p>The best way to get a <strong>clean, professional logo design</strong> fast is by using the right tool. And that tool is MockoFun’s <a href="https://www.mockofun.com/tutorials/curved-text-generator/"><strong>Curved Text Generator</strong></a>.</p>
 
 <a href="https://www.mockofun.com/tutorials/curved-text-generator/"><img src="/img/mockofun-curved-text-generator.webp" alt="MockoFun Curved Text Generator"/></a>
 <p>MockoFun is a free and user-friendly online design tool that lets you add <strong>curved, circular, or arched text</strong> to any project — no Photoshop needed. You can easily export your designs and use them on any platform, from Twitch banners to YouTube thumbnails or even merch.</p>
@@ -136,34 +167,80 @@
 <p>Color is more than just a style choice — it can trigger emotion, match game themes, and boost visibility.</p>
 <h4 id="popular-color-palettes-">Popular Color Palettes:</h4>
 <table>
-<thead>
-<tr>
-<th>Theme</th>
-<th>Color Palette</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Hacker/Tech</td>
-<td>Black, neon green, deep blue</td>
-</tr>
-<tr>
-<td>Fantasy</td>
-<td>Deep purple, gold, silver</td>
-</tr>
-<tr>
-<td>Action/Shooter</td>
-<td>Red, black, orange</td>
-</tr>
-<tr>
-<td>Casual/Funny</td>
-<td>Pastel blue, pink, yellow</td>
-</tr>
-<tr>
-<td>Stream Branding</td>
-<td>Match overlays or camera frames</td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Theme</th>
+      <th>Color Palette</th>
+      <th>Hex Colors</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Hacker/Tech</td>
+      <td>Black, neon green, deep blue</td>
+      <td>
+        <div class="color-box" style="background:#000000" onclick="copyToClipboard('#000000')">
+          <span class="tooltip">#000000</span>
+        </div>
+        <div class="color-box" style="background:#39ff14" onclick="copyToClipboard('#39ff14')">
+          <span class="tooltip">#39ff14</span>
+        </div>
+        <div class="color-box" style="background:#001f3f" onclick="copyToClipboard('#001f3f')">
+          <span class="tooltip">#001f3f</span>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Fantasy</td>
+      <td>Deep purple, gold, silver</td>
+      <td>
+        <div class="color-box" style="background:#4b0082" onclick="copyToClipboard('#4b0082')">
+          <span class="tooltip">#4b0082</span>
+        </div>
+        <div class="color-box" style="background:#ffd700" onclick="copyToClipboard('#ffd700')">
+          <span class="tooltip">#ffd700</span>
+        </div>
+        <div class="color-box" style="background:#c0c0c0" onclick="copyToClipboard('#c0c0c0')">
+          <span class="tooltip">#c0c0c0</span>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Action/Shooter</td>
+      <td>Red, black, orange</td>
+      <td>
+        <div class="color-box" style="background:#ff0000" onclick="copyToClipboard('#ff0000')">
+          <span class="tooltip">#ff0000</span>
+        </div>
+        <div class="color-box" style="background:#000000" onclick="copyToClipboard('#000000')">
+          <span class="tooltip">#000000</span>
+        </div>
+        <div class="color-box" style="background:#ff8c00" onclick="copyToClipboard('#ff8c00')">
+          <span class="tooltip">#ff8c00</span>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Casual/Funny</td>
+      <td>Pastel blue, pink, yellow</td>
+      <td>
+        <div class="color-box" style="background:#aec6cf" onclick="copyToClipboard('#aec6cf')">
+          <span class="tooltip">#aec6cf</span>
+        </div>
+        <div class="color-box" style="background:#ffb6c1" onclick="copyToClipboard('#ffb6c1')">
+          <span class="tooltip">#ffb6c1</span>
+        </div>
+        <div class="color-box" style="background:#fffacd" onclick="copyToClipboard('#fffacd')">
+          <span class="tooltip">#fffacd</span>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Stream Branding</td>
+      <td>Match overlays or camera frames</td>
+      <td style="color: #888; font-style: italic;">Depends on branding</td>
+    </tr>
+  </tbody>
 </table>
 <p>Pro tip: Add <strong>gradients</strong>, <strong>shadows</strong>, or <strong>glow effects</strong> to make your name really stand out.</p>
 <hr>
@@ -248,15 +325,43 @@ If you click the <strong>Advanced settings</strong> button inside the Curved Tex
 <p>These are easy to create with MockoFun&#39;s features — just start with curved text and build outwards.</p>
 <hr>
 <h2 id="-conclusion-make-your-nickname-look-legendary">✅ Conclusion: Make Your Nickname Look Legendary</h2>
-<p>Picking a memorable gamer nickname is step one — but <strong>branding it visually</strong> is how you make it unforgettable. Thanks to tools like <a href="https://www.mockofun.com/tutorials/curved-text-generator/"><strong>MockoFun’s curved text generator</strong></a>, you don’t need expensive software or a design degree to make something amazing.</p>
+<p>Picking a memorable gamer nickname is step one — but <strong>branding it visually</strong> is how you make it unforgettable. Thanks to tools like <strong>MockoFun’s curved text generator</strong>, you don’t need expensive software or a design degree to make something amazing.</p>
 <p>So take your name, add that curve, throw in some color, and create something that truly <strong>represents your gamer identity</strong> — whether you&#39;re playing solo, streaming to fans, or leading a squad.</p>
 <hr>
 <p>🎨 Ready to get started?
-👉 <a href="https://www.mockofun.com/tutorials/curved-text-generator/"><strong>MockoFun Curved Text Generator</strong></a> — the easiest way to make your gamer name stand out.</p>
+👉 MockoFun <a href="https://www.mockofun.com/tutorials/curved-text-generator/"><strong>Curved Text Generator</strong></a> — the easiest way to make your gamer name stand out.</p>
 <hr>
 <p><strong>Still need a name?</strong> Use our <a href="/"><strong>Nickname Generator</strong></a> to find the perfect one — and then make it look as cool as it sounds.</p>
 <hr>
+<script>
+function copyToClipboard(hex) {
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(hex)
+      .then(() => {
+        alert(`Copied ${hex} to clipboard!`);
+      })
+      .catch(err => {
+        console.error('Failed to copy text: ', err);
+        alert('Could not copy to clipboard.');
+      });
+  } else {
+    // Fallback for older browsers
+    const tempInput = document.createElement("input");
+    tempInput.value = hex;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    try {
+      document.execCommand("copy");
+      alert(`Copied ${hex} to clipboard!`);
+    } catch (err) {
+      console.error('Fallback copy failed: ', err);
+      alert('Could not copy to clipboard.');
+    }
+    document.body.removeChild(tempInput);
+  }
+}
 
+</script>
 <div class="blog-latest">
 	<section class="container d-flex w-100 h-100 m-b-3 mx-auto flex-lg-row">	
 			<div class="card">
