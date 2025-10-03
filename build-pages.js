@@ -232,7 +232,7 @@ var x = hbs.registerPartials(__dirname + '/pages/partials', function (err) {
 		]
 		files.map(file =>{
 			data.canonical = DOMAIN_FULL_URL + file.replace(/pages[\\|/]docs/g,'').replace("index.html","").replace(/\\/g,'/');
-			if (file.replace(/pages[\\|/]docs/g,'') == "\\blog\\index.html"){
+			if (file.replace(/pages[\\|/]docs/g,'') == "\\blog\\index.html" || file.replace(/pages[\\|/]docs/g,'') == "/blog/index.html"){
 				//blogroll
 				buildBlogRoll(data);
 			}
