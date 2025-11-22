@@ -303,6 +303,37 @@ function buildBlogRoll(data){
 		prevPage: page > 1 ? page - 1 : null
 	};
 
+    // Generate sitemap
+    generateBlogSitemap(
+        data.posts,
+        path.join(__dirname, "docs", "blog-sitemap.xml")
+    );
+}
+
+function generateBlogSitemap(posts, outputPath) {
+    const blogBaseUrl = "https://www.nickname-generator.net";
+
+    const urls = posts.map(p => {
+        const fullUrl = blogBaseUrl + p.url;
+        const lastmod = new Date(p.date).toISOString();
+
+        return `
+    <url>
+        <loc>${fullUrl}</loc>
+        <lastmod>${lastmod}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>`;
+    }).join("\n");
+
+    const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urls}
+</urlset>
+`;
+
+    fs.writeFileSync(outputPath, xml, "utf8");
+    console.log("✔ blog-sitemap.xml generated at:", outputPath);
 }
 
 
