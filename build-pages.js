@@ -53,6 +53,42 @@ hbs.registerHelper('image2alt',function(arg1,options){
 	return fileName.replace(/-/g," ");
 })
 
+hbs.registerHelper('authorUrl', function(authorName) {
+    if (typeof authorName !== 'string') {
+        return '';
+    }
+    return '/author/' + authorName.toLowerCase().replace(/\s+/g, '-');
+});
+
+hbs.registerHelper('authorInfo', function(authorId, options) {
+    // Author data can be managed here.
+    const authors = {
+        "john-negoita": {
+            name: "John Negoita",
+            role: "Founder & IT Solutions Architect",
+            image: "/img/john-negoita-photo.webp",
+            bio: `<p>John is the visionary behind Nickname-Generator.net, a platform dedicated to nicknames, monikers, gamertags and usernames. With a deep-rooted background in software engineering and a career-long passion for accessible technology, he focuses on creating tools and resources that help people adapt and thrive in a rapidly changing digital landscape.</p>
+<p>John’s technical journey began in the high-stakes world of competitive gaming. A long-time veteran of the <em>Counter-Strike</em> scene, his involvement spanning from the early days of <em>CS:GO</em> to the modern era of <em>CS2</em>, gave him an early, "in the trenches" look at network optimization, latency reduction, and the nuances of client-side performance. Immersed in the intricacies of "nickname culture" and global gaming communities, John developed an early appreciation for the digital identities and grassroots infrastructure that define the internet today. This unique intersection of competitive gaming and low-level software architecture taught him that technology is only truly powerful when it is accessible, reliable, and user-centric.</p>
+<p>Nickname Generator grew directly from this history. John recognized that the same principles he applied to optimizing frame times and network packets could be applied to the democratization of artificial intelligence. Today, he channels that expertise into building open-source solutions that bridge the gap between complex AI systems and the average user. He is a firm advocate for the power of open-source software and Universal Basic Income (UBI) as essential pillars for an equitable future.</p>
+<p>Through this site, John shares actionable insights on navigating the opportunities and challenges presented by artificial intelligence, ensuring that as the world changes, no one is left behind in the technical transition.</p>`,
+            twitter: "https://x.com/codingdudecom",
+            linkedin: undefined,//"https://www.linkedin.com/in/johnnegoita/"
+            website: "https://www.coding-dude.com",
+            github: "https://github.com/codingdudecom"
+        }
+        // Future authors can be added here.
+    };
+
+    const author = authors[authorId];
+
+    if (!author) {
+        return `<p style="color:red;">Author "${authorId}" not found.</p>`;
+    }
+
+    var template = hbs.compile("{{> authorInfo}}");
+    var html = template(author);
+    return new hbs.SafeString(html);
+});
 
 hbs.registerHelper('slice', function(context, block) {
 
@@ -236,8 +272,10 @@ var x = hbs.registerPartials(__dirname + '/pages/partials', function (err) {
 				//blogroll
 				buildBlogRoll(data);
 			}
+
+            
 			var html = compile(__dirname+'/'+file,data);
-			var dir = path.dirname(__dirname+'/'+file.replace(/pages[\\|/]/g,''));
+            var dir = path.dirname(__dirname+'/'+file.replace(/pages[\\|/]/g,''));
 
 			
 			if (!fs.existsSync(dir)){
@@ -348,11 +386,15 @@ const getAllFolders = function(dirPath) {
 	return files.filter(file => fs.statSync(dirPath + "/" + file).isDirectory());
 }
 const getAllFiles = function(dirPath, arrayOfFiles) {
+
   files = fs.readdirSync(dirPath)
 
   arrayOfFiles = arrayOfFiles || []
 
   files.forEach(function(file) {
+    if (file === '.DS_Store') {
+      return;
+    }
     if (fs.statSync(dirPath + "/" + file).isDirectory()) {
       arrayOfFiles = getAllFiles(dirPath + "/" + file, arrayOfFiles)
     } else {

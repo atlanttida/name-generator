@@ -1,5 +1,12 @@
 <div class="cover-container mx-auto">
 <h1 class="p-1">{{title}}</h1>
+<div class="d-flex flex-row gap-3 align-items-center mb-3">
+    {{#if author}}<span class="text-muted"><i data-lucide="user" class="me-1"></i><a href="{{authorUrl author}}" class="text-decoration-none" style="color:white;">{{author}}</a></span>  {{else}}
+	    <span class="text-muted" ><i data-lucide="user" class="me-1"></i><a href="{{authorUrl 'john-negoita'}}" class="white text-decoration-none" style="color:white;">John Negoita</a></span>
+	{{/if}}
+    {{#if date}}<span class="text-muted"><i data-lucide="calendar" class="me-1"></i>{{date}}</span>{{/if}}
+    {{#if tags}}<span class="text-muted"><i data-lucide="tag" class="me-1"></i>{{tags}}</span>{{/if}}
+</div>
 <p class="p-3 p-sm-0">{{{description}}}</p>
 </div>
 

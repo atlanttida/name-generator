@@ -1,0 +1,124 @@
+<div class="container col-xxl-9 mb-auto">
+    <div class="flex-lg-row-reverse align-items-center g-5">
+            
+          
+        <div class="author-box">
+            <div class="author-text">
+                <p class="author-label">ABOUT THE AUTHOR</p>
+                <h1 class="author-name">{{name}}</h1>
+                <p class="author-role">{{role}}</p>
+                <div class="author-bio">
+                    {{{bio}}}
+                </div>
+            </div>
+            <div class="author-visual">
+                {{#if image}}
+                <div class="author-image-container">
+                    <img src="{{image}}" alt="Photo of {{name}}" class="author-image">
+                </div>
+                {{/if}}
+                <div class="author-social">
+                    {{#if twitter}}
+                    <a href="{{twitter}}" target="_blank" rel="me noopener noreferrer" aria-label="Twitter profile of {{name}}">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="currentColor"></path></svg>
+                    </a>
+                    {{/if}}
+                    {{#if linkedin}}
+                    <a href="{{linkedin}}" target="_blank" rel="me noopener noreferrer" aria-label="LinkedIn profile of {{name}}">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 11-4.125 0 2.062 2.062 0 014.125 0zM7.394 20.452H3.28V9h4.114v11.452z" fill="currentColor"></path></svg>
+                    </a>
+                    {{/if}}
+                    {{#if github}}
+                    <a href="{{github}}" target="_blank" rel="me noopener noreferrer" aria-label="GitHub of {{name}}">
+                        <i data-lucide="github"></i>
+                    </a>
+                    {{/if}}
+                    {{#if website}}
+                    <a href="{{website}}" target="_blank" rel="me noopener noreferrer" aria-label="Website of {{name}}">
+                        <i data-lucide="globe"></i>
+                    </a>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+.author-box {
+    display: flex;
+    gap: 40px;
+
+}
+.author-text {
+    flex: 1;
+}
+.author-visual {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.author-label {
+    opacity: 0.8;
+    margin-bottom: 1rem;
+}
+.author-name {
+}
+.author-role {
+    margin-top: 0.75rem;
+    margin-bottom: 2rem;
+}
+.author-bio p {
+    margin-bottom: 1rem;
+}
+.author-image-container {
+    border-radius: 8px;
+    overflow: hidden;
+}
+.author-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    padding-right:5em;
+}
+.author-social {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1.5rem;
+    padding-right:5em;
+}
+.author-social a {
+    text-decoration: none;
+    transition: opacity 0.2s;
+    font-size:32px;
+}
+.author-social a:hover {
+    opacity: 0.8;
+}
+
+.author-social a svg{
+    width: 100%;
+    height: 100%;
+}
+@media (max-width: 800px) {
+    .author-box {
+        flex-direction: column-reverse;
+        padding: 32px;
+        align-items: center;
+        text-align: center;
+    }
+    .author-visual {
+        margin-bottom: 2rem;
+    }
+    .author-name {
+        font-size: 2.25rem;
+    }
+}
+
+header + div {
+    position: absolute;
+    max-width:0!important;
+    max-height: 0!important;
+}
+
+</style>
