@@ -85,6 +85,14 @@ hbs.registerHelper('articleContent', function(options) {
 	var data = {};
 	buildBlogRoll(data);
 
+    var authorBoxTemplate = hbs.compile("{{>authorBox}}");
+    var authorBox = "";
+
+    if (this.canonical.match(/blog\/.*?\//) && !this.canonical.match(/blog\/\d+\//)){
+        authorBox = authorBoxTemplate({});
+    }
+    
+    
 
 	var blogLatest = "";
 	if(!this.canonical.endsWith("/blog/")){
@@ -92,6 +100,7 @@ hbs.registerHelper('articleContent', function(options) {
 	}
     return '<div class="bg-light text-dark no-shadow mt-5 pb-5 text-start justify-content-center row gx-0"><div class="col-10 col-sm-6 pe-sm-5">' + 
     options.fn(this) + 
+    authorBox +
     blogLatest +
     '<div id="disqus_thread"></div>'+
     "</div><div class='sidebar col-md-2 col-sm'>"+
