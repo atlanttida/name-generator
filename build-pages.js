@@ -269,6 +269,16 @@ var x = hbs.registerPartials(__dirname + '/pages/partials', function (err) {
 			},
 		]
 		files.map(file =>{
+
+            if (data.posts){
+                //set the date for the article
+                let articleFound = data.posts.find(p => file.indexOf(p.url) >=0);
+                if (articleFound){
+                    data.date = articleFound.date;
+                    data.date = new Date(data.date).toISOString().split('T')[0];
+                }
+            }
+            
 			data.canonical = DOMAIN_FULL_URL + file.replace(/pages[\\|/]docs/g,'').replace("index.html","").replace(/\\/g,'/');
 			if (file.replace(/pages[\\|/]docs/g,'') == "\\blog\\index.html" || file.replace(/pages[\\|/]docs/g,'') == "/blog/index.html"){
 				//blogroll
