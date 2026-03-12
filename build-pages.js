@@ -7,10 +7,69 @@ hbs.registerHelper('test', function(arg1,arg2,options) {
     return (arg1 == arg2) ? options.fn(this) : "";
 });
 
+function createJsonLDSnippet(data){
+    if (data.canonical.match(/blog\/\d+\//)){
+
+        return "";
+    }
+
+    var jsonLdSnippet="";
+    if (data.posts){
+
+        //set the date for the article
+        let articleFound = data.posts.find(p => data.canonical.indexOf(p.url) >=0);
+        if (articleFound){
+            let art = {...articleFound,canonical:data.canonical};
+            const publishedDate = new Date(art.date).toISOString();
+
+            const schema = {
+              "@context": "https://schema.org",
+              "@type": "BlogPosting",
+              "@id": art.canonical + "#article",
+              "headline": art.title,
+              "description": art.description,
+              "image": "https://www.nickname-generator.net" + art.featured_image,
+              "author": {
+                "@type": "Person",
+                "name": "John Negoita",
+                "url": "https://www.nickname-generator.net/author/john-negoita/"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "Nickname Generator",
+                "url": "https://www.nickname-generator.net/",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://www.nickname-generator.net/img/nickname-generator-logo.webp"
+                }
+              },
+              "datePublished": publishedDate,
+              "dateModified": publishedDate,
+              "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": art.canonical
+              },
+              "inLanguage": "en"
+            };
+
+            jsonLdSnippet =
+            `<script type="application/ld+json">
+            ${JSON.stringify(schema, null, 2)}
+            </script>`;
+
+
+        }
+    }
+        
+    return jsonLdSnippet;
+}
+
 hbs.registerHelper('article', function(options) {
+    let snippet = createJsonLDSnippet(this);
+
     return '<article class="d-flex w-100 h-100 mx-auto flex-column pt-5">' 
     + options.fn(this)
-    + "</article>";
+    + "</article>"+snippet;
 });
 
 hbs.registerHelper('absolutePath', function(arg1,options) {
@@ -25,6 +84,8 @@ hbs.registerHelper('articleContent', function(options) {
 	var template = hbs.compile("{{>blogLatest}}");
 	var data = {};
 	buildBlogRoll(data);
+
+
 	var blogLatest = "";
 	if(!this.canonical.endsWith("/blog/")){
 		blogLatest = template(data);
