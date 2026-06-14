@@ -31,3 +31,19 @@ This is a static website project for `www.nickname-generator.net`. The site is b
 ## Key Files
 - `build-pages.js`: Handles the HTML generation logic, registers HBS helpers, and manages pagination/sitemaps.
 - `package.json`: Defines scripts and dependencies.
+
+## Internal Linking Workflow
+
+When a new blog article is published at `pages/docs/blog/<slug>/`, add contextual internal links from existing blog articles to support authority flow and SEO.
+
+### Process
+1. **Read the new article** — understand its topic, keywords, and content.
+2. **Scan all blog articles** in `pages/docs/blog/` to find candidates.
+3. **Identify 2-4 best candidates** based on topical overlap (shared themes, adjacent niches, natural content extensions).
+4. **Read each candidate** to find a natural insertion point — where existing text touches on something the new article covers in more depth.
+5. **Insert one link per candidate** using the URL `/blog/<slug>/` with natural, keyword-rich anchor text. Make sure that you don't add to articles that already have 4-5 internal links.
+
+### Guidelines
+- Prioritize relevance over quantity. Every link should feel organic.
+- Use relative paths (e.g., `/blog/soccer-team-nicknames/`).
+- Avoid forced insertions — the link should fit the surrounding sentence flow.
